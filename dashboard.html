@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ScholarStream</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-placeholder" style="width: 32px; height: 32px; font-size: 0.875rem; margin: 0;">SS
+                </div>
+                ScholarStream
+            </div>
+            <nav>
+                <a href="dashboard.html" class="nav-link active">
+                    <span></span> Dashboard
+                </a>
+                <a href="class.html" class="nav-link">
+                    <span></span> My Classes
+                </a>
+                <a href="#" class="nav-link">
+                    <span></span> Assignments
+                </a>
+                <a href="#" class="nav-link">
+                    <span></span> Grades
+                </a>
+                <a href="#" class="nav-link">
+                    <span></span> Calendar
+                </a>
+                <a href="#" class="nav-link" onclick="handleLogout(event)" style="margin-top: auto; color: #ef4444;">
+                    <span></span> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h2 id="pageTitle">Dashboard</h2>
+                <div class="user-profile">
+                    <span id="currentDate" style="color: var(--text-muted); font-size: 0.875rem;"></span>
+                    <div class="avatar">JS</div>
+                </div>
+            </div>
+
+            <div class="welcome-banner">
+                <h1>Welcome Back, <span id="studentName">Student</span>!</h1>
+                <p>You have <span id="pendingCount">0</span> assignments due this week.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <!-- My Classes -->
+                    <section>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 class="section-title" style="margin-bottom: 0;">My Classes</h3>
+                            <a href="#" style="font-size: 0.875rem;">View All</a>
+                        </div>
+                        <div class="class-list" id="classList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </section>
+
+                    <!-- Assignments Due Soon -->
+                    <section>
+                        <h3 class="section-title">Assignments Due Soon</h3>
+                        <div class="card" id="assignmentsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <!-- Grade Summary -->
+                    <section>
+                        <h3 class="section-title">Latest Grade Summary</h3>
+                        <div class="card grade-summary">
+                            <div class="gpa-circle" id="gpaDisplay">0.0</div>
+                            <p style="color: var(--text-muted);">Overall GPA</p>
+                            <div style="margin-top: 1.5rem; text-align: left;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Math 202</span>
+                                    <span style="font-weight: 600; color: var(--secondary-color);">A-</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>History 101</span>
+                                    <span style="font-weight: 600; color: var(--secondary-color);">B+</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>CS 101</span>
+                                    <span style="font-weight: 600; color: var(--secondary-color);">A</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDashboardData();
+        });
+    </script>
+</body>
+
+</html>
